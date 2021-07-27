@@ -32,6 +32,7 @@ const getProviderOrKeyFromWallet = (wallet: ConnectedWallet | null) => {
       return wallet.addressInfo.privateKey
     case WalletConnectType.Zeeves:
     case WalletConnectType.ZilPay:
+    case WalletConnectType.BoltX:
       return wallet.provider;
     case WalletConnectType.Moonlet:
       throw new Error("moonlet support under development");

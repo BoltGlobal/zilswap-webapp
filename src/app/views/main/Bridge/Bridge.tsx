@@ -267,14 +267,18 @@ const BridgeView: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props: any) 
   }
 
   const onClickConnectETH = async () => {
-    const web3Modal = new Web3Modal({
-      cacheProvider: true,
-      disableInjectedProvider: false,
-      network: "ropsten",
-      providerOptions
-    });
+    // const web3Modal = new Web3Modal({
+    //   cacheProvider: true,
+    //   disableInjectedProvider: false,
+    //   network: "ropsten",
+    //   providerOptions
+    // });
 
-    const provider = await web3Modal.connect();
+    let boltX = (window as any).boltX;
+    if (boltX) {
+      await boltX.ethereum.request({method: 'eth_requestAccounts'});
+    }
+    const provider = boltX.ethereum;
     const ethersProvider = new ethers.providers.Web3Provider(provider)
     const signer = ethersProvider.getSigner();
     const ethAddress = await signer.getAddress();
