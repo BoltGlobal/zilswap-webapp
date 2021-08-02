@@ -77,7 +77,7 @@ const ConnectWalletBoltX: React.FC<ConnectWalletManagerViewProps> = (props: any)
         throw new Error("BoltX extension not installed");
 
       const result = await boltX.zilliqa.wallet.connect();
-      if (result !== boltX.zilliqa.wallet.isConnect)
+      if (result !== boltX.zilliqa.wallet.isConnected)
         throw new Error("BoltX could not be connected to.");
       console.log(boltX);
       const walletResult: ConnectWalletResult = await connectWalletBoltX(boltX);

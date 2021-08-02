@@ -7,7 +7,7 @@ export const getConnectedBoltX = async () => {
   try {
     if (typeof boltX !== "undefined") {
       const result = await boltX.zilliqa.wallet.connect();
-      if (result === boltX.zilliqa.wallet.isConnect) {
+      if (result === boltX.zilliqa.wallet.isConnected) {
         return boltX;
       }
     }

@@ -74,7 +74,7 @@ export const connectWalletZilPay = async (zilPay: any): Promise<ConnectWalletRes
 
 export const connectWalletBoltX = async (boltX: any): Promise<ConnectWalletResult> => {
 
-  if (!boltX.zilliqa.wallet.isConnect)
+  if (!boltX.zilliqa.wallet.isConnected)
     throw new Error("BoltX connection failed.");
 
   const account: any = boltX.zilliqa.wallet.defaultAccount;
